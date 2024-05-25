@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/views/welcome_view.dart';
 
 void main() {
   runApp(const LearningManagementSystem());
@@ -12,20 +14,9 @@ class LearningManagementSystem extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Poppins'),
-      home: WelcomeView(),
+      theme: ThemeData(
+          fontFamily: 'Poppins', scaffoldBackgroundColor: primaryColor),
+      home: const WelcomeView(),
     );
   }
 }
-
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return PageView(
-      children: [],
-    );
-  }
-}
-
