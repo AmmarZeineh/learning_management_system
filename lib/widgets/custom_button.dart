@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/constants.dart';
 
-class CategoryButton extends StatelessWidget {
-  const CategoryButton({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     this.onTap,
     required this.title,
+    required this.textColor,
+    required this.buttonColor,
   });
   final void Function()? onTap;
   final String title;
+  final Color textColor;
+  final Color buttonColor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,12 @@ class CategoryButton extends StatelessWidget {
         height: 40,
         width: 350,
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(12)),
+            color: buttonColor, borderRadius: BorderRadius.circular(12)),
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(
-                color: primaryColor, fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: textColor, fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ),
       ),
