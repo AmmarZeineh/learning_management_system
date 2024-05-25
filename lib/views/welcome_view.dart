@@ -10,6 +10,7 @@ List pages = [
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
+  static String id = "Welcome View";
 
   @override
   State<WelcomeView> createState() => _WelcomeViewState();
