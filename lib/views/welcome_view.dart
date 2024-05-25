@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/widgets/intro_views_body.dart';
+import 'package:learning_management_system/widgets/welcome_button.dart';
 
 List pages = [
   const FirstIntroView(),
@@ -63,7 +63,8 @@ class _WelcomeViewState extends State<WelcomeView> {
                 const SizedBox(
                   height: 90,
                 ),
-                GestureDetector(
+                WelcomeButton(
+                  activePage: activePage,
                   onTap: () {
                     setState(() {
                       pageController.animateToPage(activePage + 1,
@@ -71,30 +72,6 @@ class _WelcomeViewState extends State<WelcomeView> {
                           curve: Curves.easeIn);
                     });
                   },
-                  child: Container(
-                    height: 40,
-                    width: 350,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12)),
-                    child: Center(
-                      child: activePage == 2
-                          ? const Text(
-                              'Get Started',
-                              style: TextStyle(
-                                  color: primaryColor,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          : const Text(
-                              'Continue',
-                              style: TextStyle(
-                                  color: primaryColor,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                    ),
-                  ),
                 ),
               ],
             ),
