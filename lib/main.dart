@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/views/student_forget_password_view.dart';
 import 'package:learning_management_system/views/student_choose_view.dart';
 import 'package:learning_management_system/views/student_login_view.dart';
+import 'package:learning_management_system/views/student_reset_password_view.dart';
+import 'package:learning_management_system/views/student_signup.dart';
+import 'package:learning_management_system/views/student_verfiy_view.dart';
 import 'package:learning_management_system/views/welcome_view.dart';
 
 void main() {
@@ -20,6 +24,12 @@ class LearningManagementSystem extends StatelessWidget {
         WelcomeView.id: (context) => const WelcomeView(),
         StudentChooseView.id: (context) => const StudentChooseView(),
         StudentLoginView.id: (context) => const StudentLoginView(),
+        StudentSignupView.id: (context) => const StudentSignupView(),
+        StudentForgetPasswordView.id: (context) =>
+            const StudentForgetPasswordView(),
+        StudentVerfiyView.id: (context) => const StudentVerfiyView(),
+        StudentResetPasswordView.id: (context) =>
+            const StudentResetPasswordView()
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

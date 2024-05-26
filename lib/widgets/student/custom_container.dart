@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/constants.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key,
-    required this.text,
-    this.onTap,
+    required this.child,
   });
-  final String text;
-  final VoidCallback? onTap;
+  final Widget child;
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: primaryColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        width: 300,
-        height: 40,
-        child: Center(
-          child: Text(
-            text,
-            style: const TextStyle(fontSize: 20, color: Colors.white),
+    return Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
         ),
-      ),
-    );
+        // ignore: prefer_const_constructors
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: child,
+        ));
   }
 }

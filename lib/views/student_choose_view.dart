@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_login_view.dart';
-import 'package:learning_management_system/widgets/student/custom_container.dart';
+import 'package:learning_management_system/views/student_signup.dart';
+import 'package:learning_management_system/widgets/custom_button.dart';
+
 import 'package:svg_flutter/svg.dart';
 
 class StudentChooseView extends StatelessWidget {
   const StudentChooseView({super.key});
-  static String id = "Student Login";
+  static String id = "Student choosing";
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +25,24 @@ class StudentChooseView extends StatelessWidget {
             const SizedBox(
               height: 250,
             ),
-            CustomContainer(
+            CustomButton(
+              title: 'Sign in',
+              textColor: Colors.white,
+              buttonColor: primaryColor,
               onTap: () {
                 Navigator.pushNamed(context, StudentLoginView.id);
               },
-              text: "Login",
             ),
             const SizedBox(
               height: 15,
             ),
-            const CustomContainer(
-              text: "SignUp",
+            CustomButton(
+              title: 'Sign up',
+              textColor: Colors.white,
+              buttonColor: primaryColor,
+              onTap: () {
+                Navigator.pushNamed(context, StudentSignupView.id);
+              },
             )
           ],
         ),
