@@ -3,7 +3,7 @@ import 'package:flutter_verification_code_field/flutter_verification_code_field.
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/instructor_reset_password_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
-import 'package:learning_management_system/widgets/insturactor/login_signup_scaffold.dart';
+import 'package:learning_management_system/widgets/login_signup_scaffold.dart';
 import 'package:svg_flutter/svg.dart';
 
 class InstructorVerfiyView extends StatelessWidget {

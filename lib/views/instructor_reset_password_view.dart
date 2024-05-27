@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
-import 'package:learning_management_system/widgets/insturactor/login_signup_scaffold.dart';
+import 'package:learning_management_system/widgets/login_signup_scaffold.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:svg_flutter/svg.dart';
 
