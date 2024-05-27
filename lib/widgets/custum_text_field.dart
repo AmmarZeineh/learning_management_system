@@ -6,14 +6,17 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.onChanged,
     this.obs = false,
+    this.textInputType,
   });
   final Function(String)? onChanged;
 
   final String? hintText;
   final bool? obs;
+  final TextInputType? textInputType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: textInputType,
       obscureText: obs!,
       validator: (data) {
         if (data!.isEmpty) {
@@ -30,7 +33,7 @@ class CustomTextField extends StatelessWidget {
           borderSide: BorderSide(),
         ),
         border: const OutlineInputBorder(
-          borderSide: const BorderSide(),
+          borderSide: BorderSide(),
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
       ),

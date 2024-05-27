@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
-import 'package:learning_management_system/views/insturctor_choose_view.dart';
+import 'package:learning_management_system/views/instructor_choose_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -36,7 +36,7 @@ class CategoryView extends StatelessWidget {
             title: 'Instructor',
             buttonColor: Colors.white,
             onTap: () {
-              Navigator.pushNamed(context, InsturctorChooseView.id);
+              Navigator.pushNamed(context, InstructorChooseView.id);
             },
           ),
           const SizedBox(
