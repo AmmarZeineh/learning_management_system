@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
-import 'package:learning_management_system/views/student_choose_view.dart';
-import 'package:learning_management_system/views/student_login_view.dart';
+import 'package:learning_management_system/views/insturctor_login_view.dart';
+import 'package:learning_management_system/views/insturctor_choose_view.dart';
 import 'package:learning_management_system/views/welcome_view.dart';
 
 void main() {
@@ -18,8 +18,8 @@ class LearningManagementSystem extends StatelessWidget {
       initialRoute: WelcomeView.id,
       routes: {
         WelcomeView.id: (context) => const WelcomeView(),
-        StudentChooseView.id: (context) => const StudentChooseView(),
-        StudentLoginView.id: (context) => const StudentLoginView(),
+        InsturctorChooseView.id: (context) => const InsturctorChooseView(),
+        InsturctorLoginView.id: (context) => const InsturctorLoginView(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
