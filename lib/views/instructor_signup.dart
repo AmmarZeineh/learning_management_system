@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
+import 'package:learning_management_system/widgets/insturactor/upload_image_and_file_chosen_container.dart';
 import 'package:learning_management_system/widgets/login_signup_scaffold.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:svg_flutter/svg.dart';
@@ -44,10 +45,12 @@ class InstructorSignupView extends StatelessWidget {
             obs: true,
           ),
           const SizedBox(
-            height: 50,
+            height: 25,
           ),
+          const UploadImageAndChosenFileContainer(),
+          const SizedBox(height: 30),
           const CustomButton(
-              title: "Sign in",
+              title: "Sign up",
               textColor: Colors.white,
               buttonColor: primaryColor),
           const SizedBox(
