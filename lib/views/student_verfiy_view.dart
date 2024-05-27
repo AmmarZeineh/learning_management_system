@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_reset_password_view.dart';
@@ -42,7 +44,7 @@ class StudentVerfiyView extends StatelessWidget {
             ),
             VerificationCodeField(
               length: 5,
-              onFilled: (value) => print(value),
+              onFilled: (value) => log(value),
               size: const Size(30, 60),
               spaceBetween: 16,
               matchingPattern: RegExp(r'^\d+$'),

@@ -8,7 +8,7 @@ import 'package:svg_flutter/svg.dart';
 class StudentSignupView extends StatelessWidget {
   const StudentSignupView({super.key});
   static String id = "Student Signup";
-
+//var
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -50,3 +50,4 @@ class StudentChooseView extends StatelessWidget {
     );
   }
 }
+//var

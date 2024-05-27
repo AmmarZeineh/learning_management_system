@@ -8,7 +8,7 @@ import 'package:svg_flutter/svg.dart';
 class StudentResetPasswordView extends StatelessWidget {
   const StudentResetPasswordView({super.key});
   static String id = "StudentResetPassword";
-
+//var
   @override
   Widget build(BuildContext context) {
     return Scaffold(
