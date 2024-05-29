@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/instructor_forget_password_view.dart';
+import 'package:learning_management_system/views/instructor_reset_password_success.dart';
 import 'package:learning_management_system/views/instructor_reset_password_view.dart';
 import 'package:learning_management_system/views/instructor_signup.dart';
 import 'package:learning_management_system/views/instructor_verfiy_view.dart';
@@ -30,7 +31,9 @@ class LearningManagementSystem extends StatelessWidget {
         InstructorResetPasswordView.id: (context) =>
             const InstructorResetPasswordView(),
         InstructorVerfiyView.id: (context) => const InstructorVerfiyView(),
-        InstructorSignupView.id: (context) => const InstructorSignupView()
+        InstructorSignupView.id: (context) => const InstructorSignupView(),
+        InstructorResetPasswordSuccessView.id: (context) =>
+            const InstructorResetPasswordSuccessView()
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

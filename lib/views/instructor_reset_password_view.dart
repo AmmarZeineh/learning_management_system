@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/views/instructor_reset_password_success.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:learning_management_system/widgets/login_signup_scaffold.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
@@ -40,10 +41,12 @@ class InstructorResetPasswordView extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const CustomButton(
+          CustomButton(
               title: "Confirm",
               textColor: Colors.white,
-              buttonColor: primaryColor),
+              buttonColor: primaryColor,
+              onTap: () => Navigator.pushNamed(
+                  context, InstructorResetPasswordSuccessView.id)),
         ],
       ),
     );
