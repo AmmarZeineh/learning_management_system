@@ -3,13 +3,12 @@ import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
-
 import 'package:svg_flutter/svg.dart';
 
 class StudentSignupView extends StatelessWidget {
   const StudentSignupView({super.key});
   static String id = "Student Signup";
-//var
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,7 @@ class StudentSignupView extends StatelessWidget {
         child: AppBar(
           iconTheme: const IconThemeData(color: Colors.white),
           centerTitle: true,
-          backgroundColor: primaryColor,
+          backgroundColor: kPrimaryColor,
           title: const Text(
             "Create new account",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -61,7 +60,7 @@ class StudentSignupView extends StatelessWidget {
               const CustomButton(
                   title: "Sign in",
                   textColor: Colors.white,
-                  buttonColor: primaryColor),
+                  buttonColor: kPrimaryColor),
               const SizedBox(
                 height: 10,
               ),

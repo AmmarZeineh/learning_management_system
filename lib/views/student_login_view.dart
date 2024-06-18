@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/views/Student_home_view.dart';
 import 'package:learning_management_system/views/student_forget_password_view.dart';
-
 import 'package:learning_management_system/widgets/custom_button.dart';
+import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
-
 import 'package:svg_flutter/svg.dart';
 
 class StudentLoginView extends StatelessWidget {
   const StudentLoginView({super.key});
   static String id = "Student login";
-//var
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class StudentLoginView extends StatelessWidget {
         child: AppBar(
           iconTheme: const IconThemeData(color: Colors.white),
           centerTitle: true,
-          backgroundColor: primaryColor,
+          backgroundColor: kPrimaryColor,
           title: const Text(
             "Welcome back",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -50,10 +50,12 @@ class StudentLoginView extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              const CustomButton(
-                  title: "Sign in",
-                  textColor: Colors.white,
-                  buttonColor: primaryColor),
+              CustomButton(
+                title: "Sign in",
+                textColor: Colors.white,
+                buttonColor: kPrimaryColor,
+                onTap: () => Navigator.pushNamed(context, StudentHomeView.id),
+              ),
               const SizedBox(
                 height: 10,
               ),

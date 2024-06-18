@@ -1,11 +1,9 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_reset_password_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
-
 import 'package:flutter_verification_code_field/flutter_verification_code_field.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -21,7 +19,7 @@ class StudentVerfiyView extends StatelessWidget {
         child: AppBar(
           iconTheme: const IconThemeData(color: Colors.white),
           centerTitle: true,
-          backgroundColor: primaryColor,
+          backgroundColor: kPrimaryColor,
           title: const Text(
             "Verification",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -55,7 +53,7 @@ class StudentVerfiyView extends StatelessWidget {
             CustomButton(
               title: "Verifiy",
               textColor: Colors.white,
-              buttonColor: primaryColor,
+              buttonColor: kPrimaryColor,
               onTap: () {
                 Navigator.pushNamed(context, StudentResetPasswordView.id);
               },

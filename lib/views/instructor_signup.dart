@@ -49,7 +49,7 @@ class InstructorSignupView extends StatelessWidget {
           const CustomButton(
               title: "Sign in",
               textColor: Colors.white,
-              buttonColor: primaryColor),
+              buttonColor: kPrimaryColor),
           const SizedBox(
             height: 10,
           ),

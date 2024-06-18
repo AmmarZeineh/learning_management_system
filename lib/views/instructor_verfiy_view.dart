@@ -40,7 +40,7 @@ class InstructorVerfiyView extends StatelessWidget {
           CustomButton(
             title: "Verifiy",
             textColor: Colors.white,
-            buttonColor: primaryColor,
+            buttonColor: kPrimaryColor,
             onTap: () {
               Navigator.pushNamed(context, InstructorResetPasswordView.id);
             },

@@ -43,7 +43,7 @@ class InstructorResetPasswordView extends StatelessWidget {
           const CustomButton(
               title: "Confirm",
               textColor: Colors.white,
-              buttonColor: primaryColor),
+              buttonColor: kPrimaryColor),
         ],
       ),
     );

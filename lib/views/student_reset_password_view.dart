@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/views/student_reset_password_success_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
+import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
-import 'package:learning_management_system/widgets/student/custum_text_field.dart';
 import 'package:svg_flutter/svg.dart';
 
 class StudentResetPasswordView extends StatelessWidget {
   const StudentResetPasswordView({super.key});
   static String id = "StudentResetPassword";
-//var
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,7 @@ class StudentResetPasswordView extends StatelessWidget {
         child: AppBar(
           iconTheme: const IconThemeData(color: Colors.white),
           centerTitle: true,
-          backgroundColor: primaryColor,
+          backgroundColor: kPrimaryColor,
           title: const Text(
             "Reset password",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -52,10 +53,15 @@ class StudentResetPasswordView extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const CustomButton(
-                  title: "Confirm",
-                  textColor: Colors.white,
-                  buttonColor: primaryColor),
+               CustomButton(
+                title: "Confirm",
+                textColor: Colors.white,
+                buttonColor: kPrimaryColor,
+                onTap: () {
+                  Navigator.pushNamed(
+                      context, StudentResetPasswordSuccesView.id);
+                },
+              ),
             ],
           ),
         ),

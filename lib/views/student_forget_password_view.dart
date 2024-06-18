@@ -1,14 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_verfiy_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
-
 import 'package:svg_flutter/svg.dart';
-//var
+
 class StudentForgetPasswordView extends StatelessWidget {
   const StudentForgetPasswordView({super.key});
   static String id = "StudentForgetPassword";
@@ -21,7 +18,7 @@ class StudentForgetPasswordView extends StatelessWidget {
         child: AppBar(
           iconTheme: const IconThemeData(color: Colors.white),
           centerTitle: true,
-          backgroundColor: primaryColor,
+          backgroundColor: kPrimaryColor,
           title: const Text(
             "Forget password",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -49,7 +46,7 @@ class StudentForgetPasswordView extends StatelessWidget {
             CustomButton(
               title: "Submit",
               textColor: Colors.white,
-              buttonColor: primaryColor,
+              buttonColor: kPrimaryColor,
               onTap: () {
                 Navigator.pushNamed(context, StudentVerfiyView.id);
               },
