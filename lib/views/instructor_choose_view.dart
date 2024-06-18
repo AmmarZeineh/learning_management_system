@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
-import 'package:learning_management_system/views/student_login_view.dart';
-import 'package:learning_management_system/views/student_signup.dart';
+import 'package:learning_management_system/views/instructor_signup.dart';
+import 'package:learning_management_system/views/instructor_login_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
-
 import 'package:svg_flutter/svg.dart';
 
-class StudentChooseView extends StatelessWidget {
-  const StudentChooseView({super.key});
-  static String id = "Student choosing";
+class InstructorChooseView extends StatelessWidget {
+  const InstructorChooseView({super.key});
+  static String id = "Insturctor Choose View";
 
   @override
   Widget build(BuildContext context) {
@@ -23,27 +22,36 @@ class StudentChooseView extends StatelessWidget {
               height: 300,
             ),
             const SizedBox(
-              height: 250,
+              height: 50,
+            ),
+            const Text(
+              'SignUp Or Already has an account?',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 150,
             ),
             CustomButton(
-              title: 'Sign in',
+              title: 'Login',
               textColor: Colors.white,
               buttonColor: primaryColor,
-              onTap: () {
-                Navigator.pushNamed(context, StudentLoginView.id);
-              },
+              onTap: () => Navigator.pushNamed(context, InstructorLoginView.id),
             ),
             const SizedBox(
               height: 15,
             ),
             CustomButton(
-              title: 'Sign up',
+              title: 'SignUp',
               textColor: Colors.white,
               buttonColor: primaryColor,
               onTap: () {
-                Navigator.pushNamed(context, StudentSignupView.id);
+                Navigator.pushNamed(context, InstructorSignupView.id);
               },
-            )
+            ),
           ],
         ),
       ),

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_verfiy_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
+import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
-import 'package:learning_management_system/widgets/student/custum_text_field.dart';
+
 import 'package:svg_flutter/svg.dart';
 //var
 class StudentForgetPasswordView extends StatelessWidget {
