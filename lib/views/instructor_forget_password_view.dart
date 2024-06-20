@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/instructor_verfiy_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
-import 'package:learning_management_system/widgets/login_signup_scaffold.dart';
+import 'package:learning_management_system/widgets/app_scaffold.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -13,7 +13,7 @@ class InstructorForgetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginSignUpScaffold(
+    return AppScaffold(
       title: 'Forgot Your Password',
       containerChild: Column(
         children: [

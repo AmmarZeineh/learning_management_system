@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoginSignUpScaffold extends StatelessWidget {
-  const LoginSignUpScaffold(
+class AppScaffold extends StatelessWidget {
+  const AppScaffold(
       {super.key, required this.title, required this.containerChild});
 
   final String title;

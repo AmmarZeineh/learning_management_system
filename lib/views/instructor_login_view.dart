@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/instructor_forget_password_view.dart';
+import 'package:learning_management_system/views/instructor_home_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
-import 'package:learning_management_system/widgets/login_signup_scaffold.dart';
+import 'package:learning_management_system/widgets/app_scaffold.dart';
 import 'package:learning_management_system/widgets/custum_text_field.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -13,7 +14,7 @@ class InstructorLoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginSignUpScaffold(
+    return AppScaffold(
       title: 'Welcome Back',
       containerChild: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -36,8 +37,11 @@ class InstructorLoginView extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          const CustomButton(
+          CustomButton(
               title: "Sign in",
+              onTap: () {
+                Navigator.pushNamed(context, InstructorHomeView.id);
+              },
               textColor: Colors.white,
               buttonColor: primaryColor),
           const SizedBox(

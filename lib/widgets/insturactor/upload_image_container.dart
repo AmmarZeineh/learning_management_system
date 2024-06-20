@@ -1,5 +1,10 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learning_management_system/cubits/teacher_auth_cubit/teacher_auth_cubit.dart';
+import 'package:learning_management_system/helper/show_snack_bar.dart';
 
 class ImageUploadContainer extends StatelessWidget {
   const ImageUploadContainer({
@@ -9,9 +14,15 @@ class ImageUploadContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        ImagePicker imagePicker = ImagePicker();
-        imagePicker.pickImage(source: ImageSource.gallery);
+      onTap: () async {
+        FilePickerResult? result = await FilePicker.platform.pickFiles();
+        if (result != null) {
+          File file = File(result.files.single.path!);
+          BlocProvider.of<TeacherAuthCubit>(context).photoLicensePath =
+              file.path;
+        } else {
+          showSnackBar(context, 'You must choose an image');
+        }
       },
       child: Container(
         decoration: BoxDecoration(
