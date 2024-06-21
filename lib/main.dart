@@ -10,6 +10,7 @@ import 'package:learning_management_system/views/instructor_choose_view.dart';
 import 'package:learning_management_system/views/student_choose_view.dart';
 import 'package:learning_management_system/views/student_forget_password_view.dart';
 import 'package:learning_management_system/views/student_login_view.dart';
+import 'package:learning_management_system/views/student_mycorses_view.dart';
 import 'package:learning_management_system/views/student_profile_view.dart';
 import 'package:learning_management_system/views/student_reset_password_success_view.dart';
 import 'package:learning_management_system/views/student_reset_password_view.dart';
@@ -52,7 +53,8 @@ class LearningManagementSystem extends StatelessWidget {
             const StudentResetPasswordSuccesView(),
         StudentHomeView.id: (context) => const StudentHomeView(),
         StudentSearchView.id: (context) => const StudentSearchView(),
-        StudentProfileView.id: (context) => const StudentProfileView()
+        StudentProfileView.id: (context) => const StudentProfileView(),
+        StudentMycorsesView.id: (context) => const StudentMycorsesView(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

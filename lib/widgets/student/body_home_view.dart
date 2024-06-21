@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/views/student_mycorses_view.dart';
 import 'package:learning_management_system/widgets/student/category_list_view.dart';
 import 'package:learning_management_system/widgets/student/courses_list_view.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
@@ -18,16 +19,24 @@ class StudentBodyHomeView extends StatelessWidget {
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.shopping_cart,
-                  color: Colors.white,
-                  size: 25,
-                ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+                size: 25,
               ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.favorite,
+                color: Colors.white,
+                size: 25,
+              ),
+            ),
+            const SizedBox(
+              width: 10,
             )
           ],
           automaticallyImplyLeading: false,
@@ -39,13 +48,13 @@ class StudentBodyHomeView extends StatelessWidget {
           ),
         ),
       ),
-      body: const CustomContainer(
+      body: CustomContainer(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Row(
+            const Row(
               children: [
                 Text(
                   "Category :",
@@ -53,14 +62,38 @@ class StudentBodyHomeView extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            CategoryListView(),
-            SizedBox(
+            const CategoryListView(),
+            const SizedBox(
               height: 30,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "My Courses :",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                GestureDetector(
+                  onTap: () =>
+                      Navigator.pushNamed(context, StudentMycorsesView.id),
+                  child: const Text(
+                    ">>See All",
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  ),
+                ),
+              ],
+            ),
+            const QuizesListView(),
+            const SizedBox(
+              height: 30,
+            ),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -76,28 +109,8 @@ class StudentBodyHomeView extends StatelessWidget {
                 ),
               ],
             ),
-            QuizesListView(),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "My Courses :",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  ">>See All",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
-                ),
-              ],
-            ),
-            CoursesListView(),
-            SizedBox(
+            const CoursesListView(),
+            const SizedBox(
               height: 20,
             ),
           ],

@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_profile_view.dart';
 import 'package:learning_management_system/views/student_search_view.dart';
+import 'package:learning_management_system/views/student_wallet_view.dart';
 import 'package:learning_management_system/widgets/student/body_home_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +19,7 @@ class _StudentHomeViewState extends State<StudentHomeView> {
   int _currentIndex = 0;
   List<Widget> listOption = <Widget>[
     const StudentBodyHomeView(),
-    const StudentHomeView(),
+    const StudentWalletView(),
     const StudentSearchView(),
     const StudentProfileView(),
   ];
@@ -49,15 +50,15 @@ class _StudentHomeViewState extends State<StudentHomeView> {
                 text: "Home",
               ),
               GButton(
-                icon: Icons.favorite_border,
-                text: "Likes",
+                icon: Icons.wallet,
+                text: "My Wallet",
               ),
               GButton(
                 icon: Icons.search,
                 text: "Search",
               ),
               GButton(
-                icon: FontAwesomeIcons.personHarassing,
+                icon: FontAwesomeIcons.person,
                 text: "Profile",
               )
             ],
@@ -68,5 +69,3 @@ class _StudentHomeViewState extends State<StudentHomeView> {
     );
   }
 }
-
-
