@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/models/category_model.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -24,7 +23,7 @@ class CategoryCard extends StatelessWidget {
                 item.image,
                 width: 100,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Text(
@@ -34,7 +33,7 @@ class CategoryCard extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
             ],

@@ -10,18 +10,17 @@ import 'package:learning_management_system/views/instructor_choose_view.dart';
 import 'package:learning_management_system/views/student_choose_view.dart';
 import 'package:learning_management_system/views/student_forget_password_view.dart';
 import 'package:learning_management_system/views/student_login_view.dart';
+import 'package:learning_management_system/views/student_profile_view.dart';
 import 'package:learning_management_system/views/student_reset_password_success_view.dart';
 import 'package:learning_management_system/views/student_reset_password_view.dart';
 import 'package:learning_management_system/views/student_search_view.dart';
 import 'package:learning_management_system/views/student_signup.dart';
 import 'package:learning_management_system/views/student_verfiy_view.dart';
-
 import 'package:learning_management_system/views/welcome_view.dart';
 
 void main() {
   runApp(const LearningManagementSystem());
 }
-enum SelectedTab { home, favorite, add, search, person }
 
 class LearningManagementSystem extends StatelessWidget {
   const LearningManagementSystem({super.key});
@@ -51,8 +50,9 @@ class LearningManagementSystem extends StatelessWidget {
             const StudentResetPasswordView(),
         StudentResetPasswordSuccesView.id: (context) =>
             const StudentResetPasswordSuccesView(),
-            StudentHomeView.id:(context)=>const StudentHomeView(),
-            StudentSearchView.id:(context)=>const StudentSearchView()
+        StudentHomeView.id: (context) => const StudentHomeView(),
+        StudentSearchView.id: (context) => const StudentSearchView(),
+        StudentProfileView.id: (context) => const StudentProfileView()
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

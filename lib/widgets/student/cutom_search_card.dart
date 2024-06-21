@@ -28,7 +28,7 @@ class CustomSearchCard extends StatelessWidget {
               ),
             ]),
             IconButton(
-              icon: Icon(Icons.arrow_circle_right),
+              icon: const Icon(Icons.arrow_circle_right),
               onPressed: () {},
             )
           ],
