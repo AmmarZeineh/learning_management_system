@@ -14,3 +14,4 @@ final class TeacherAuthFailure extends TeacherAuthState {
 
   TeacherAuthFailure({required this.errMessage});
 }
+//

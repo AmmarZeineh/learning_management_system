@@ -45,7 +45,7 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
   }) async {
     emit(TeacherAuthLoading());
     try {
-      Api().post(
+      await Api().post(
           url: 'http://10.0.2.2:8000/api/user/login',
           body: {
             'email': email,
@@ -53,7 +53,7 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
           },
           token: null);
       emit(TeacherAuthSuccess());
-    } on Exception catch (e) {
+    } catch (e) {
       emit(TeacherAuthFailure(errMessage: e.toString()));
     }
   }

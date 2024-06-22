@@ -63,11 +63,11 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
                   ),
                   CustomButton(
                       title: "Sign in",
-                      onTap: () {
+                      onTap: () async {
                         if (formKey.currentState!.validate()) {
                           setState(() {});
 
-                          BlocProvider.of<TeacherAuthCubit>(context)
+                         await BlocProvider.of<TeacherAuthCubit>(context)
                               .teacherLogIn(
                             email: email!,
                             password: password!,

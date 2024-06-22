@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/category_view.dart';
 import 'package:learning_management_system/views/welcome_view.dart';
-
+//
 class WelcomeButton extends StatelessWidget {
   const WelcomeButton({super.key, this.onTap, required this.activePage});
   final void Function()? onTap;
