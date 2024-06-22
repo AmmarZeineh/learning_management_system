@@ -37,7 +37,7 @@ class InstructorForgetPasswordView extends StatelessWidget {
           CustomButton(
             title: "Submit",
             textColor: Colors.white,
-            buttonColor: primaryColor,
+            buttonColor: kPrimaryColor,
             onTap: () {
               Navigator.pushNamed(context, InstructorVerfiyView.id);
             },

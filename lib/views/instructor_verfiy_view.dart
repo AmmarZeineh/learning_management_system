@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code_field/flutter_verification_code_field.dart';
 import 'package:learning_management_system/constants.dart';
@@ -29,7 +30,7 @@ class InstructorVerfiyView extends StatelessWidget {
           ),
           VerificationCodeField(
             length: 5,
-            onFilled: (value) => print(value),
+            onFilled: (value) => log(value),
             size: const Size(30, 60),
             spaceBetween: 16,
             matchingPattern: RegExp(r'^\d+$'),
@@ -40,7 +41,7 @@ class InstructorVerfiyView extends StatelessWidget {
           CustomButton(
             title: "Verifiy",
             textColor: Colors.white,
-            buttonColor: primaryColor,
+            buttonColor: kPrimaryColor,
             onTap: () {
               Navigator.pushNamed(context, InstructorResetPasswordView.id);
             },

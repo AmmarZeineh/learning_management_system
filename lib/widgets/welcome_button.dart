@@ -28,14 +28,14 @@ class WelcomeButton extends StatelessWidget {
               ? const Text(
                   'Get Started',
                   style: TextStyle(
-                      color: primaryColor,
+                      color: kPrimaryColor,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
                 )
               : const Text(
                   'Continue',
                   style: TextStyle(
-                      color: primaryColor,
+                      color: kPrimaryColor,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
                 ),

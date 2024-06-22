@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/cubits/teacher_auth_cubit/teacher_auth_cubit.dart';
+import 'package:learning_management_system/views/Student_home_view.dart';
 import 'package:learning_management_system/views/instructor_forget_password_view.dart';
 import 'package:learning_management_system/views/instructor_home_view.dart';
 import 'package:learning_management_system/views/instructor_reset_password_success.dart';
@@ -10,7 +11,16 @@ import 'package:learning_management_system/views/instructor_signup.dart';
 import 'package:learning_management_system/views/instructor_verfiy_view.dart';
 import 'package:learning_management_system/views/instructor_login_view.dart';
 import 'package:learning_management_system/views/instructor_choose_view.dart';
-
+import 'package:learning_management_system/views/student_choose_view.dart';
+import 'package:learning_management_system/views/student_forget_password_view.dart';
+import 'package:learning_management_system/views/student_login_view.dart';
+import 'package:learning_management_system/views/student_mycorses_view.dart';
+import 'package:learning_management_system/views/student_profile_view.dart';
+import 'package:learning_management_system/views/student_reset_password_success_view.dart';
+import 'package:learning_management_system/views/student_reset_password_view.dart';
+import 'package:learning_management_system/views/student_search_view.dart';
+import 'package:learning_management_system/views/student_signup.dart';
+import 'package:learning_management_system/views/student_verfiy_view.dart';
 import 'package:learning_management_system/views/welcome_view.dart';
 //
 

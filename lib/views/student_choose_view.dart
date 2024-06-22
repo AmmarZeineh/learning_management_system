@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
-import 'package:learning_management_system/views/instructor_signup.dart';
-import 'package:learning_management_system/views/instructor_login_view.dart';
+import 'package:learning_management_system/views/student_login_view.dart';
+import 'package:learning_management_system/views/student_signup.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:svg_flutter/svg.dart';
 
-class InstructorChooseView extends StatelessWidget {
-  const InstructorChooseView({super.key});
-  static String id = "Insturctor Choose View";
+class StudentChooseView extends StatelessWidget {
+  const StudentChooseView({super.key});
+  static String id = "StudentChoose";
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class InstructorChooseView extends StatelessWidget {
               title: 'Login',
               textColor: Colors.white,
               buttonColor: kPrimaryColor,
-              onTap: () => Navigator.pushNamed(context, InstructorLoginView.id),
+              onTap: () => Navigator.pushNamed(context, StudentLoginView.id),
             ),
             const SizedBox(
               height: 15,
@@ -49,7 +49,7 @@ class InstructorChooseView extends StatelessWidget {
               textColor: Colors.white,
               buttonColor: kPrimaryColor,
               onTap: () {
-                Navigator.pushNamed(context, InstructorSignupView.id);
+                Navigator.pushNamed(context, StudentSignupView.id);
               },
             ),
           ],
@@ -58,4 +58,3 @@ class InstructorChooseView extends StatelessWidget {
     );
   }
 }
-//
