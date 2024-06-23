@@ -67,7 +67,7 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
                         if (formKey.currentState!.validate()) {
                           setState(() {});
 
-                         await BlocProvider.of<TeacherAuthCubit>(context)
+                          await BlocProvider.of<TeacherAuthCubit>(context)
                               .teacherLogIn(
                             email: email!,
                             password: password!,
@@ -75,13 +75,16 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
 
                           if (state is TeacherAuthFailure) {
                             showSnackBar(context, state.errMessage);
-                          } else if (state is TeacherAuthSuccess) {
-                            Navigator.pushNamed(context, InstructorHomeView.id);
+                          } else {
+                            Navigator.pushNamed(
+                              context,
+                              InstructorHomeView.id,
+                            );
                           }
                         }
                       },
                       textColor: Colors.white,
-                      buttonColor: primaryColor),
+                      buttonColor: kPrimaryColor),
                   const SizedBox(
                     height: 10,
                   ),

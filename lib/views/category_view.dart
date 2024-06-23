@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/instructor_choose_view.dart';
-import 'package:learning_management_system/views/student_choose_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -57,11 +56,10 @@ class CategoryView extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          CustomButton(
+          const CustomButton(
             textColor: kPrimaryColor,
             buttonColor: Colors.white,
             title: 'Student',
-            onTap: () => Navigator.pushNamed(context, StudentChooseView.id),
           ),
         ],
       ),

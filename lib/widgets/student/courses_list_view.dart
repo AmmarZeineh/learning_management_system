@@ -15,17 +15,20 @@ class CoursesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 150,
-      child: ListView.builder(
-        itemCount: courses.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: CustomCard(
-              text: courses[index],
-            ),
-          );
-        },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16),
+        child: ListView.builder(
+          itemCount: courses.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: CustomCard(
+                text: courses[index],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

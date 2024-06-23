@@ -44,7 +44,7 @@ class InstructorResetPasswordView extends StatelessWidget {
           CustomButton(
               title: "Confirm",
               textColor: Colors.white,
-              buttonColor: primaryColor,
+              buttonColor: kPrimaryColor,
               onTap: () => Navigator.pushNamed(
                   context, InstructorResetPasswordSuccessView.id)),
         ],

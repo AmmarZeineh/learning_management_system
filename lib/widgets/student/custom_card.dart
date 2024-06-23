@@ -3,16 +3,17 @@ import 'package:svg_flutter/svg.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
-    super.key, required this.text,
+    super.key,
+    required this.text,
   });
   final String text;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-      width: 150,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         children: [
           SvgPicture.asset(
@@ -28,9 +29,10 @@ class CustomCard extends StatelessWidget {
                   bottomRight: Radius.circular(10),
                   bottomLeft: Radius.circular(10)),
             ),
-            child:  Center(
+            child: Center(
               child: Text(
                 text,
+                textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white),
               ),
             ),

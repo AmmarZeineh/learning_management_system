@@ -2,27 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/cubits/teacher_auth_cubit/teacher_auth_cubit.dart';
-import 'package:learning_management_system/views/Student_home_view.dart';
 import 'package:learning_management_system/views/instructor_forget_password_view.dart';
 import 'package:learning_management_system/views/instructor_home_view.dart';
+import 'package:learning_management_system/views/instructor_home_view_body.dart';
+import 'package:learning_management_system/views/instructor_profile_view.dart';
+import 'package:learning_management_system/views/instructor_quizezzes_view.dart';
 import 'package:learning_management_system/views/instructor_reset_password_success.dart';
 import 'package:learning_management_system/views/instructor_reset_password_view.dart';
 import 'package:learning_management_system/views/instructor_signup.dart';
 import 'package:learning_management_system/views/instructor_verfiy_view.dart';
 import 'package:learning_management_system/views/instructor_login_view.dart';
 import 'package:learning_management_system/views/instructor_choose_view.dart';
-import 'package:learning_management_system/views/student_choose_view.dart';
-import 'package:learning_management_system/views/student_forget_password_view.dart';
-import 'package:learning_management_system/views/student_login_view.dart';
-import 'package:learning_management_system/views/student_mycorses_view.dart';
-import 'package:learning_management_system/views/student_profile_view.dart';
-import 'package:learning_management_system/views/student_reset_password_success_view.dart';
-import 'package:learning_management_system/views/student_reset_password_view.dart';
-import 'package:learning_management_system/views/student_search_view.dart';
-import 'package:learning_management_system/views/student_signup.dart';
-import 'package:learning_management_system/views/student_verfiy_view.dart';
 import 'package:learning_management_system/views/welcome_view.dart';
-//
 
 void main() {
   runApp(const LearningManagementSystem());
@@ -43,9 +34,11 @@ class LearningManagementSystem extends StatelessWidget {
       child: MaterialApp(
         initialRoute: WelcomeView.id,
         routes: {
+          InstructorQuizzesView.id: (context) => const InstructorQuizzesView(),
           WelcomeView.id: (context) => const WelcomeView(),
           InstructorChooseView.id: (context) => const InstructorChooseView(),
           InstructorLoginView.id: (context) => const InstructorLoginView(),
+          InstructorHomeView.id: (context) => const InstructorHomeView(),
           InstructorForgetPasswordView.id: (context) =>
               const InstructorForgetPasswordView(),
           InstructorResetPasswordView.id: (context) =>
@@ -54,11 +47,13 @@ class LearningManagementSystem extends StatelessWidget {
           InstructorSignupView.id: (context) => const InstructorSignupView(),
           InstructorResetPasswordSuccessView.id: (context) =>
               const InstructorResetPasswordSuccessView(),
-          InstructorHomeView.id: (context) => const InstructorHomeView()
+          InstructorHomeViewBody.id: (context) =>
+              const InstructorHomeViewBody(),
+          InstructorProfileView.id: (context) => const InstructorProfileView()
         },
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            fontFamily: 'Poppins', scaffoldBackgroundColor: primaryColor),
+            fontFamily: 'Poppins', scaffoldBackgroundColor: kPrimaryColor),
         home: const WelcomeView(),
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/helper/api.dart';
+import 'package:learning_management_system/models/teacher_model.dart';
 
 part 'teacher_auth_state.dart';
 
@@ -9,15 +11,16 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
   TeacherAuthCubit() : super(TeacherAuthInitial());
 
   String? photoLicensePath;
+  TeacherModel? teacherModel;
 
-  Future<void> teacherSignUp({
+  teacherSignUp({
     required String username,
     required String password,
     required String phonenumber,
     required String email,
   }) async {
     emit(TeacherAuthLoading());
-    const url = 'http://10.0.2.2:8000/api/user/register';
+    const url = '${baseUrl}user/register';
 
     final request = http.MultipartRequest('POST', Uri.parse(url));
     request.fields['password'] = password;
@@ -39,22 +42,28 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
     }
   }
 
-  Future<void> teacherLogIn({
+  teacherLogIn({
     required String email,
     required String password,
   }) async {
     emit(TeacherAuthLoading());
     try {
-      await Api().post(
-          url: 'http://10.0.2.2:8000/api/user/login',
+      dynamic response = await Api().post(
+          url: '${baseUrl}user/login',
           body: {
             'email': email,
             'password': password,
           },
           token: null);
+      teacherModel = TeacherModel.fromJson(response);
+
       emit(TeacherAuthSuccess());
     } catch (e) {
       emit(TeacherAuthFailure(errMessage: e.toString()));
     }
+  }
+
+  teacherLogout({required String token}) async {
+    await Api().post(url: '${baseUrl}user/logout', body: {}, token: token);
   }
 }

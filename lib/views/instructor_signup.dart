@@ -83,7 +83,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                   CustomButton(
                     title: "Sign up",
                     textColor: Colors.white,
-                    buttonColor: primaryColor,
+                    buttonColor: kPrimaryColor,
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         setState(() {});
