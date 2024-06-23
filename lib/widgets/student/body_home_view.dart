@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/views/student_mycorses_view.dart';
+import 'package:learning_management_system/views/student_myquizes_view.dart';
 import 'package:learning_management_system/widgets/student/category_list_view.dart';
 import 'package:learning_management_system/widgets/student/courses_list_view.dart';
 import 'package:learning_management_system/widgets/student/custom_container.dart';
@@ -93,19 +94,23 @@ class StudentBodyHomeView extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "My Quizes :",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  ">>See All",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
+                GestureDetector(
+                  onTap: () =>
+                      Navigator.pushNamed(context, StudentMyQuizesView.id),
+                  child: const Text(
+                    ">>See All",
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  ),
                 ),
               ],
             ),

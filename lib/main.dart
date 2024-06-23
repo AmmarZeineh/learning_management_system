@@ -11,6 +11,7 @@ import 'package:learning_management_system/views/student_choose_view.dart';
 import 'package:learning_management_system/views/student_forget_password_view.dart';
 import 'package:learning_management_system/views/student_login_view.dart';
 import 'package:learning_management_system/views/student_mycorses_view.dart';
+import 'package:learning_management_system/views/student_myquizes_view.dart';
 import 'package:learning_management_system/views/student_profile_view.dart';
 import 'package:learning_management_system/views/student_reset_password_success_view.dart';
 import 'package:learning_management_system/views/student_reset_password_view.dart';
@@ -42,8 +43,8 @@ class LearningManagementSystem extends StatelessWidget {
         InstructorVerfiyView.id: (context) => const InstructorVerfiyView(),
         InstructorSignupView.id: (context) => const InstructorSignupView(),
         StudentChooseView.id: (context) => const StudentChooseView(),
-        StudentLoginView.id: (context) => const StudentLoginView(),
-        StudentSignupView.id: (context) => const StudentSignupView(),
+        StudentLoginView.id: (context) => StudentLoginView(),
+        StudentSignupView.id: (context) => StudentSignupView(),
         StudentForgetPasswordView.id: (context) =>
             const StudentForgetPasswordView(),
         StudentVerfiyView.id: (context) => const StudentVerfiyView(),
@@ -55,6 +56,7 @@ class LearningManagementSystem extends StatelessWidget {
         StudentSearchView.id: (context) => const StudentSearchView(),
         StudentProfileView.id: (context) => const StudentProfileView(),
         StudentMycorsesView.id: (context) => const StudentMycorsesView(),
+        StudentMyQuizesView.id: (context) => const StudentMyQuizesView(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
