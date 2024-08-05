@@ -28,6 +28,7 @@ class InstructorForgetPasswordView extends StatelessWidget {
             height: 60,
           ),
           const CustomTextField(
+            fillColor: Colors.white,
             hintText: "Phone number",
             textInputType: TextInputType.number,
           ),

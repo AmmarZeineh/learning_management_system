@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/cubits/fetch_courses_cubit/fetch_courses_cubit_cubit.dart';
 import 'package:learning_management_system/cubits/teacher_auth_cubit/teacher_auth_cubit.dart';
 import 'package:learning_management_system/helper/show_snack_bar.dart';
+import 'package:learning_management_system/models/course_model.dart';
 import 'package:learning_management_system/views/instructor_forget_password_view.dart';
 import 'package:learning_management_system/views/instructor_home_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';
@@ -47,6 +49,7 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
                     height: 50,
                   ),
                   CustomTextField(
+                    fillColor: Colors.white,
                     hintText: "email",
                     onChanged: (p0) => email = p0,
                   ),
@@ -54,6 +57,7 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
                     height: 10,
                   ),
                   CustomTextField(
+                    fillColor: Colors.white,
                     hintText: "Password",
                     obs: true,
                     onChanged: (p0) => password = p0,
@@ -76,10 +80,20 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
                           if (state is TeacherAuthFailure) {
                             showSnackBar(context, state.errMessage);
                           } else {
-                            Navigator.pushNamed(
-                              context,
-                              InstructorHomeView.id,
-                            );
+                            try {
+                              await Navigator.pushReplacementNamed(
+                                  context, InstructorHomeView.id,
+                                  arguments: await BlocProvider.of<
+                                              FetchCoursesCubit>(context)
+                                          .getAllCourses(
+                                              id: BlocProvider.of<
+                                                      TeacherAuthCubit>(context)
+                                                  .teacherModel!
+                                                  .teacherId!)
+                                      as List<CourseModel>);
+                            } on Exception catch (e) {
+                              showSnackBar(context, e.toString());
+                            }
                           }
                         }
                       },

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/widgets/student/custom_card.dart';
+import 'package:learning_management_system/models/course_model.dart';
+import 'package:learning_management_system/widgets/insturactor/instructor_custom_course_card.dart';
 
 class CoursesGridViewBuilder extends StatelessWidget {
-  const CoursesGridViewBuilder({super.key});
+  const CoursesGridViewBuilder({super.key, required this.coursesList});
+  final List<CourseModel> coursesList;
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +14,15 @@ class CoursesGridViewBuilder extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, top: 16),
         child: GridView.builder(
+          itemCount: coursesList.length,
           padding: EdgeInsets.zero,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2),
+              childAspectRatio: 4 / 3.5, crossAxisCount: 2),
           itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: CustomCard(
-                text: 'Flutter Advanced Course',
+            return Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: InstructorCustomCourseCard(
+                courseModel: coursesList[index],
               ),
             );
           },

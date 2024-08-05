@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:learning_management_system/models/course_model.dart';
+import 'package:learning_management_system/views/instructor_course_details_view.dart';
 import 'package:svg_flutter/svg.dart';
 
-class CustomCard extends StatelessWidget {
-  const CustomCard({
+class InstructorCustomCourseCard extends StatelessWidget {
+  const InstructorCustomCourseCard({
     super.key,
-    required this.text,
+    required this.courseModel,
   });
-  final String text;
+  final CourseModel courseModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: () {
+        Navigator.pushNamed(context, InstructorCourseDetailsView.id,arguments: courseModel);
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -33,7 +37,7 @@ class CustomCard extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  text,
+                  courseModel.courseName,
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: Colors.white),
                 ),

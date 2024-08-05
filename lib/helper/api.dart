@@ -26,10 +26,10 @@ class Api {
       headers.addAll({'Authorization': 'Bearer $token'});
     }
     http.Response response =
-        await http.post(Uri.parse(url), headers: headers, body: body);
+        await http.put(Uri.parse(url), headers: headers, body: body);
 
     if (response.statusCode == 200) {
-      Map<String, dynamic> data = jsonDecode(response.body);
+      dynamic data = jsonDecode(response.body);
       return data;
     } else {
       throw Exception('${jsonDecode(response.body)}');

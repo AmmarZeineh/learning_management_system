@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:learning_management_system/widgets/student/custom_card.dart';
-
 class CoursesListView extends StatelessWidget {
   const CoursesListView({super.key});
   final List<String> courses = const [
@@ -22,11 +20,7 @@ class CoursesListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: CustomCard(
-                text: courses[index],
-              ),
-            );
+                padding: const EdgeInsets.only(right: 10), child: Container());
           },
         ),
       ),

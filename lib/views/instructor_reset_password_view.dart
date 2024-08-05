@@ -28,6 +28,7 @@ class InstructorResetPasswordView extends StatelessWidget {
             height: 50,
           ),
           const CustomTextField(
+            fillColor: Colors.white,
             hintText: "New password",
             obs: true,
           ),
@@ -35,6 +36,7 @@ class InstructorResetPasswordView extends StatelessWidget {
             height: 20,
           ),
           const CustomTextField(
+            fillColor: Colors.white,
             hintText: "Confirm password",
             obs: true,
           ),

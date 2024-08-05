@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learning_management_system/cubits/fetch_quizzes_cubit/fetch_quizzes_cubit.dart';
 import 'package:learning_management_system/widgets/insturactor/quizzes_list_view_builder.dart';
 
 class InstructorQuizzesView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _InstructorQuizzesViewState extends State<InstructorQuizzesView> {
           const Padding(
             padding: EdgeInsets.only(left: 32, right: 20),
             child: Text(
-              'Quizzez',
+              'Quizzes',
               style: TextStyle(color: Colors.white, fontSize: 28),
             ),
           ),
@@ -43,23 +44,35 @@ class _InstructorQuizzesViewState extends State<InstructorQuizzesView> {
                 padding: const EdgeInsets.only(top: 16),
                 child: SingleChildScrollView(
                     child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(32.0)),
-                          minimumSize: const Size(150, 50),
-                          backgroundColor: kPrimaryColor),
-                      onPressed: () {},
-                      child: const Text(
-                        'Create a new Quiz',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 24),
+                      child: Text(
+                        'My Quizzes :',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const QuizzesListViewBuilder(),
+                    BlocBuilder<FetchQuizzesCubit, FetchQuizzesState>(
+                      builder: (context, state) {
+                        if (state is FetchQuizzesLoading) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        } else if (state is FetchQuizzesFailure) {
+                          return Center(
+                            child: Text(state.err),
+                          );
+                        }
+                        return QuizzesListViewBuilder(
+                          quizzesList:
+                              BlocProvider.of<FetchQuizzesCubit>(context)
+                                  .quizzesList,
+                        );
+                      },
+                    ),
                   ],
                 )),
               ),

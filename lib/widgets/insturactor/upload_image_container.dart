@@ -10,12 +10,15 @@ class ImageUploadContainer extends StatelessWidget {
   const ImageUploadContainer({
     super.key,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        FilePickerResult? result = await FilePicker.platform.pickFiles();
+        FilePickerResult? result = await FilePicker.platform. pickFiles(
+          type: FileType.custom,
+          allowedExtensions: ['png','jpeg']
+        );
         if (result != null) {
           File file = File(result.files.single.path!);
           BlocProvider.of<TeacherAuthCubit>(context).photoLicensePath =

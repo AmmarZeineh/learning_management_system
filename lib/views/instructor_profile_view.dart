@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/cubits/teacher_auth_cubit/teacher_auth_cubit.dart';
-import 'package:learning_management_system/helper/api.dart';
 import 'package:learning_management_system/helper/show_snack_bar.dart';
 import 'package:learning_management_system/views/welcome_view.dart';
 import 'package:learning_management_system/widgets/custom_button.dart';

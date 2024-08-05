@@ -49,6 +49,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                     height: 40,
                   ),
                   CustomTextField(
+                    fillColor: Colors.white,
                     hintText: "Email",
                     onChanged: (value) => email = value,
                   ),
@@ -56,6 +57,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                     height: 10,
                   ),
                   CustomTextField(
+                    fillColor: Colors.white,
                     hintText: "Phone Number",
                     textInputType: TextInputType.number,
                     onChanged: (value) => phonenumber = value,
@@ -64,6 +66,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                     height: 10,
                   ),
                   CustomTextField(
+                    fillColor: Colors.white,
                     hintText: "Username",
                     onChanged: (value) => username = value,
                   ),
@@ -71,6 +74,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                     height: 10,
                   ),
                   CustomTextField(
+                    fillColor: Colors.white,
                     hintText: "Password",
                     obs: true,
                     onChanged: (value) => password = value,
@@ -97,6 +101,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                         if (state is TeacherAuthFailure) {
                           showSnackBar(context, state.errMessage);
                         } else if (state is TeacherAuthSuccess) {
+                          showSnackBar(context, 'SingedUp successfully');
                           Navigator.pushReplacementNamed(
                               context, InstructorLoginView.id);
                         }
