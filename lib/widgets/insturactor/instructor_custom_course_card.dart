@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learning_management_system/constants.dart';
+import 'package:learning_management_system/helper/api.dart';
 import 'package:learning_management_system/models/course_model.dart';
 import 'package:learning_management_system/views/instructor_course_details_view.dart';
 import 'package:svg_flutter/svg.dart';
@@ -13,8 +15,15 @@ class InstructorCustomCourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, InstructorCourseDetailsView.id,arguments: courseModel);
+      onTap: () async {
+        Navigator.pushNamed(context, InstructorCourseDetailsView.id,
+            arguments: [
+              courseModel,
+              await Api().put(
+                  url: '${baseUrl}user/getCourseRating/${courseModel.courseId}',
+                  body: null,
+                  token: null)
+            ]);
       },
       child: Container(
         decoration: BoxDecoration(
