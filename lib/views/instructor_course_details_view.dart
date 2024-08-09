@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:learning_management_system/models/comment_model/comment_model.dart';
 import 'package:learning_management_system/models/course_model.dart';
 import 'package:learning_management_system/widgets/app_scaffold.dart';
 import 'package:learning_management_system/widgets/insturactor/course_details_view_body.dart';
@@ -21,13 +21,18 @@ class _InstructorCourseDetailsViewState
     List<dynamic> arguments =
         ModalRoute.of(context)!.settings.arguments as List<dynamic>;
     CourseModel courseModel = arguments[0];
-    double rating = double.parse(arguments[1]['average_rating']);
+    double rating = arguments[1];
+    List<CommentModel> commentsList = arguments[2];
+    int earnings = arguments[3];
+
     return AppScaffold(
-        title: 'Course Details',
-        containerChild: SingleChildScrollView(
-            child: CourseDetailsViewBody(
-          courseModel: courseModel,
-          rating: rating,
-        )));
+      title: 'Course Details',
+      containerChild: CourseDetailsViewBody(
+        earnings: earnings,
+        courseModel: courseModel,
+        rating: rating,
+        commentsList: commentsList,
+      ),
+    );
   }
 }

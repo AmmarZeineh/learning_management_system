@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management_system/constants.dart';
 import 'package:learning_management_system/cubits/bottom_sheet_cubit/bottom_sheet_cubit.dart';
 import 'package:learning_management_system/cubits/bottom_sheet_quiz_cubit/bottom_sheet_quiz_cubit.dart';
+import 'package:learning_management_system/cubits/fetch_comments_cubit/fetch_comments_cubit.dart';
 import 'package:learning_management_system/cubits/fetch_courses_cubit/fetch_courses_cubit_cubit.dart';
 import 'package:learning_management_system/cubits/fetch_quizzes_cubit/fetch_quizzes_cubit.dart';
 import 'package:learning_management_system/cubits/upload_files_and_videos_cubit/upload_files_and_videos_cubit.dart';
@@ -52,7 +53,10 @@ class LearningManagementSystem extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FetchQuizzesCubit(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => FetchCommentsCubit(),
+        ),
       ],
       child: MaterialApp(
         initialRoute: WelcomeView.id,
