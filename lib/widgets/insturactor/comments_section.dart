@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:learning_management_system/models/comment_model/comment_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learning_management_system/cubits/fetch_comments_cubit/fetch_comments_cubit.dart';
+import 'package:learning_management_system/models/course_model.dart';
 import 'package:learning_management_system/widgets/insturactor/comment_item.dart';
 
 class CommentsSection extends StatelessWidget {
-  const CommentsSection({super.key, required this.commentsList});
-
-  final List<CommentModel> commentsList;
+  const CommentsSection({super.key, required this.courseModel});
+  final CourseModel courseModel;
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<FetchCommentsCubit>(context)
+        .fetchComments(courseId: courseModel.courseId);
     return Column(
       children: [
         const Row(
@@ -23,22 +26,54 @@ class CommentsSection extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        ListView.builder(
-          shrinkWrap: true,
-          primary: false,
-          padding: EdgeInsets.zero,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return SizedBox(
-              height: 100,
-              child: CommentItem(
-                userName: commentsList[index].studentCourse!.user!.username!,
-                value: commentsList[index].value!,
-                date: commentsList[index].createdAt!,
-              ),
-            );
+        BlocBuilder<FetchCommentsCubit, FetchCommentsState>(
+          builder: (context, state) {
+            if (state is FetchCommentsLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is FetchCommentsFailure) {
+              return Center(
+                child: Text(state.err),
+              );
+            }
+            if (BlocProvider.of<FetchCommentsCubit>(context)
+                .commentsList
+                .isNotEmpty) {
+              return ListView.builder(
+                shrinkWrap: true,
+                primary: false,
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return SizedBox(
+                    height: 100,
+                    child: CommentItem(
+                      userName: BlocProvider.of<FetchCommentsCubit>(context)
+                          .commentsList[index]
+                          .studentCourse!
+                          .user!
+                          .username!,
+                      value: BlocProvider.of<FetchCommentsCubit>(context)
+                          .commentsList[index]
+                          .value!,
+                      date: BlocProvider.of<FetchCommentsCubit>(context)
+                          .commentsList[index]
+                          .createdAt!,
+                    ),
+                  );
+                },
+                itemCount: BlocProvider.of<FetchCommentsCubit>(context)
+                    .commentsList
+                    .length,
+              );
+            } else {
+              return const Text(
+                'No Comments Yet',
+                style: TextStyle(fontSize: 18),
+              );
+            }
           },
-          itemCount: commentsList.length,
         )
       ],
     );

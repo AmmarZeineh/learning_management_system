@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_management_system/cubits/fetch_comments_cubit/fetch_comments_cubit.dart';
 import 'package:learning_management_system/models/course_model.dart';
-import 'package:learning_management_system/services/get_coure_earnings.dart';
-import 'package:learning_management_system/services/get_course_rating.dart';
 import 'package:learning_management_system/views/instructor_course_details_view.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -18,15 +14,11 @@ class InstructorCustomCourseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        Navigator.pushNamed(context, InstructorCourseDetailsView.id,
-            arguments: [
-              courseModel,
-              await GetCourseRating().getCourseRating(courseModel: courseModel),
-              await BlocProvider.of<FetchCommentsCubit>(context)
-                  .fetchComments(courseId: courseModel.courseId),
-              await GetCoureEarnings()
-                  .getCoureEarnings(courseModel: courseModel)
-            ]);
+        Navigator.pushNamed(
+          context,
+          InstructorCourseDetailsView.id,
+          arguments: courseModel,
+        );
       },
       child: Container(
         decoration: BoxDecoration(

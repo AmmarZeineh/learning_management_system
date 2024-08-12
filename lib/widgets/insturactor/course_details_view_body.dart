@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:learning_management_system/metods.dart';
-import 'package:learning_management_system/models/comment_model/comment_model.dart';
 import 'package:learning_management_system/models/course_model.dart';
+import 'package:learning_management_system/services/get_coure_earnings.dart';
+import 'package:learning_management_system/services/get_course_rating.dart';
 import 'package:learning_management_system/widgets/insturactor/comments_section.dart';
 import 'package:learning_management_system/widgets/insturactor/course_details.dart';
 import 'package:learning_management_system/widgets/insturactor/create_quiz_widget.dart';
-import 'package:learning_management_system/widgets/insturactor/earnings_widget.dart';
-import 'package:learning_management_system/widgets/insturactor/rating_widget.dart';
 import 'package:learning_management_system/widgets/insturactor/view_files_and_delete_button.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:svg_flutter/svg.dart';
 
 class CourseDetailsViewBody extends StatefulWidget {
-  const CourseDetailsViewBody(
-      {super.key,
-      required this.courseModel,
-      required this.rating,
-      required this.commentsList,
-      required this.earnings});
+  const CourseDetailsViewBody({
+    super.key,
+    required this.courseModel,
+  });
 
   final CourseModel courseModel;
-  final double rating;
-  final List<CommentModel> commentsList;
-  final int earnings;
 
   @override
   State<CourseDetailsViewBody> createState() => _CourseDetailsViewBodyState();
@@ -99,11 +94,77 @@ class _CourseDetailsViewBodyState extends State<CourseDetailsViewBody> {
         const SizedBox(
           height: 20,
         ),
-        RatingWidget(widget: widget),
+        Row(
+          children: [
+            const Text(
+              'Course Rating : ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            const Spacer(),
+            FutureBuilder(
+              future: GetCourseRating()
+                  .getCourseRating(courseModel: widget.courseModel),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    children: [
+                      SizedBox(
+                          width: 150,
+                          child: LinearPercentIndicator(
+                            barRadius: const Radius.circular(10),
+                            lineHeight: 15.0,
+                            percent: snapshot.data! / (50 * 2),
+                            backgroundColor: Colors.grey.shade300,
+                            progressColor: Colors.yellow,
+                          )),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '${snapshot.data! / (20)} of 5',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
         const SizedBox(
           height: 20,
         ),
-        EarningsWidget(widget: widget),
+        Row(
+          children: [
+            const Text(
+              'Course Earnings : ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            const Spacer(),
+            FutureBuilder(
+                future: GetCoureEarnings()
+                    .getCoureEarnings(courseModel: widget.courseModel),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Text(
+                      '${snapshot.data.toString()}\$',
+                      style: const TextStyle(fontSize: 20),
+                    );
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                }),
+            const SizedBox(
+              width: 16,
+            )
+          ],
+        ),
         const SizedBox(
           height: 40,
         ),
@@ -111,7 +172,9 @@ class _CourseDetailsViewBodyState extends State<CourseDetailsViewBody> {
         const SizedBox(
           height: 20,
         ),
-        CommentsSection(commentsList: widget.commentsList)
+        CommentsSection(
+          courseModel: widget.courseModel,
+        )
       ],
     );
   }

@@ -55,69 +55,80 @@ class _InstructorHomeViewBodyState extends State<InstructorHomeViewBody> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: SingleChildScrollView(
-                  child: BlocBuilder<FetchCoursesCubit, FetchCoursesCubitState>(
-                    builder: (context, state) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 24),
+                        child: Text(
+                          'My Courses :',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.sizeOf(context).height -
+                            (MediaQuery.sizeOf(context).height -
+                                MediaQuery.sizeOf(context).height * 0.665),
+                        child: BlocBuilder<FetchCoursesCubit,
+                            FetchCoursesCubitState>(
+                          builder: (context, state) {
+                            if (state is FetchCoursesCubitSuccess) {
+                              return CoursesGridViewBuilder(
+                                coursesList:
+                                    BlocProvider.of<FetchCoursesCubit>(context)
+                                        .coursesList,
+                              );
+                            } else if (state is FetchCoursesCubitFailure) {
+                              return Center(
+                                child: Text(state.err),
+                              );
+                            } else {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 24),
-                            child: Text(
-                              'My Courses :',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SizedBox(
-                            height: MediaQuery.sizeOf(context).height -
-                                (MediaQuery.sizeOf(context).height -
-                                    MediaQuery.sizeOf(context).height * 0.665),
-                            child: CoursesGridViewBuilder(
-                              coursesList:
-                                  BlocProvider.of<FetchCoursesCubit>(context)
-                                      .coursesList,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              const Spacer(),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 16),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(32.0)),
-                                      minimumSize: const Size(150, 50),
-                                      backgroundColor: kPrimaryColor),
-                                  onPressed: () {
-                                    showModalBottomSheet(
-                                      context: context,
-                                      builder: (context) {
-                                        return const CustomBottomSheetBody();
-                                      },
-                                    );
+                          const Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(32.0)),
+                                  minimumSize: const Size(150, 50),
+                                  backgroundColor: kPrimaryColor),
+                              onPressed: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return const CustomBottomSheetBody();
                                   },
-                                  child: const Text(
-                                    'Create a new course',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
-                                  ),
-                                ),
+                                );
+                              },
+                              child: const Text(
+                                'Create a new course',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
                               ),
-                            ],
+                            ),
                           ),
                         ],
-                      );
-                    },
+                      ),
+                    ],
                   ),
                 ),
               ),
