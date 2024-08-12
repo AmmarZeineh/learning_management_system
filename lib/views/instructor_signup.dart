@@ -34,7 +34,7 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
         key: formKey,
         child: BlocBuilder<TeacherAuthCubit, TeacherAuthState>(
           builder: (context, state) {
-            if (state is TeacherAuthLoading) {
+            if (state is TeacherSignUpLoading) {
               return const Center(child: CircularProgressIndicator());
             }
             return SingleChildScrollView(
@@ -98,9 +98,9 @@ class _InstructorSignupViewState extends State<InstructorSignupView> {
                                 password: password!,
                                 phonenumber: phonenumber!,
                                 email: email!);
-                        if (state is TeacherAuthFailure) {
+                        if (state is TeacherSignUpFailure) {
                           showSnackBar(context, state.errMessage);
-                        } else if (state is TeacherAuthSuccess) {
+                        } else if (state is TeacherSignUpSuccess) {
                           showSnackBar(context, 'SingedUp successfully');
                           Navigator.pushReplacementNamed(
                               context, InstructorLoginView.id);

@@ -34,7 +34,7 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
         key: formKey,
         child: BlocBuilder<TeacherAuthCubit, TeacherAuthState>(
           builder: (context, state) {
-            if (state is TeacherAuthLoading) {
+            if (state is TeacherLoginLoading) {
               return const Center(child: CircularProgressIndicator());
             }
             return SingleChildScrollView(
@@ -77,7 +77,7 @@ class _InstructorLoginViewState extends State<InstructorLoginView> {
                             password: password!,
                           );
 
-                          if (state is TeacherAuthFailure) {
+                          if (state is TeacherLoginFailure) {
                             showSnackBar(context, state.errMessage);
                           } else {
                             try {

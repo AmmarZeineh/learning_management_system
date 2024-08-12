@@ -19,7 +19,7 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
     required String phonenumber,
     required String email,
   }) async {
-    emit(TeacherAuthLoading());
+    emit(TeacherSignUpLoading());
     const url = '${baseUrl}user/register';
 
     final request = http.MultipartRequest('POST', Uri.parse(url));
@@ -35,10 +35,10 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
 
     final response = await request.send();
     if (response.statusCode == 200) {
-      emit(TeacherAuthSuccess());
+      emit(TeacherSignUpSuccess());
     } else {
       final responseBody = await response.stream.bytesToString();
-      emit(TeacherAuthFailure(errMessage: responseBody));
+      emit(TeacherSignUpFailure(errMessage: responseBody));
     }
   }
 
@@ -46,7 +46,7 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
     required String email,
     required String password,
   }) async {
-    emit(TeacherAuthLoading());
+    emit(TeacherLoginLoading());
     try {
       dynamic response = await Api().post(
           url: '${baseUrl}user/login',
@@ -57,9 +57,9 @@ class TeacherAuthCubit extends Cubit<TeacherAuthState> {
           token: null);
       teacherModel = TeacherModel.fromJson(response);
 
-      emit(TeacherAuthSuccess());
+      emit(TeacherLoginSuccess());
     } catch (e) {
-      emit(TeacherAuthFailure(errMessage: e.toString()));
+      emit(TeacherLoginFailure(errMessage: e.toString()));
     }
   }
 
