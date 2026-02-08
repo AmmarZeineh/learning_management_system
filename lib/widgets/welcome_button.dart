@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:coursecraft/constants.dart';
+import 'package:coursecraft/views/category_view.dart';
+import 'package:coursecraft/views/welcome_view.dart';
+
+//
+class WelcomeButton extends StatelessWidget {
+  const WelcomeButton({super.key, this.onTap, required this.activePage});
+  final void Function()? onTap;
+  final int activePage;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: activePage == pages.length - 1
+          ? () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CategoryView();
+                  },
+                ),
+              );
+            }
+          : onTap,
+      child: Container(
+        height: 40,
+        width: 350,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: activePage == pages.length - 1
+              ? const Text(
+                  'Get Started',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : const Text(
+                  'Continue',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+        ),
+      ),
+    );
+  }
+}
